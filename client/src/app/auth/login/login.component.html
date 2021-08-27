@@ -1,1 +1,49 @@
-<p>login works!</p>
+<div class="container-fluid all">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="frm">
+                <div class="my-fnt fnt-weight">
+                    <h2>LogIn</h2>
+                </div>
+                <form (ngSubmit)="onLogin(f)" #f="ngForm">
+                    <div class="form-group my-fnt mt-4">
+                        <label for="email">E-Mail</label>
+                        <input 
+                        placeholder = "e.g.(abc@xyz.com)"
+                        type="email"
+                        id="email" 
+                        name="email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        ngModel
+                        class="form-control" 
+                        required
+                        #email="ngModel">
+                        <span 
+                        class="help-block"
+                        *ngIf="!email.valid && email.touched"
+                        style="color:red;">Enter a valid Email</span>
+                    </div>
+                    <div class="form-group my-fnt mt-4">
+                        <label for="password">Password</label>
+                        <input 
+                        placeholder = "Minimum length 6 characters"
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        ngModel 
+                        class="form-control" 
+                        required
+                        [minlength]="6"
+                        #password="ngModel">
+                        <span
+                        class="help-block"
+                        *ngIf="!password.valid && password.touched"
+                        style="color:red;">Enter minimum 6 character password</span>
+                    </div>
+                    <button type="submit" class="mybutton my-fnt" [disabled]="!f.valid">LogIn</button>
+                </form>
+                <p class="my-fnt mt-4">Don't have an account ? <a routerLink='/signup' class="pointer txt-dec">SignUp</a></p>
+            </div>
+        </div>
+    </div>
+</div>
