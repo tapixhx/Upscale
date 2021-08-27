@@ -1,1 +1,133 @@
-<p>create works!</p>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-10">
+            <h3 class="my-fnt fnt-weight">Let's Advertise!</h3>
+            <form (ngSubmit)="onCreate(f)" #f="ngForm">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group my-fnt mt-4">
+                            <label for="title">Title</label>
+                            <input
+                            placeholder="e.g.(Bitcoinxchange)"
+                            type="text" 
+                            id="title" 
+                            name="title"
+                            class="form-control"
+                            ngModel
+                            required
+                            #title="ngModel">
+                            <span 
+                            class="help-block" 
+                            *ngIf="!title.valid && title.touched"
+                            style="color:red;">Enter a valid title</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group my-fnt mt-4">
+                            <label for="imagePath">Banner</label>
+                            <input
+                            placeholder="Image URL"
+                            name="imagePath"
+                            type="text"
+                            id="imagePath" 
+                            class="form-control"
+                            ngModel
+                            required
+                            #imagePath
+                            #imgPath="ngModel">
+                            <span 
+                            class="help=block" 
+                            *ngIf="!imgPath.valid && imgPath.touched"
+                            style="color:red;">Enter a Valid Image URL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group my-fnt mt-4">
+                            <label for="category">Category of Advertisement</label>
+                            <div class="row">
+                                <div class="col-3">
+                                    <input 
+                                    type="radio" 
+                                    name="category"
+                                    value="E-Commerce"
+                                    style="margin : 5px 5px;"
+                                    ngModel
+                                    required> E-Commerce
+                                </div>
+                                <div class="col-3">
+                                    <input 
+                                    type="radio" 
+                                    name="category"
+                                    value="Crypto"
+                                    style="margin : 5px 5px;"
+                                    ngModel
+                                    required> Crypto
+                                </div>
+                                <div class="col-3">
+                                    <input 
+                                    type="radio" 
+                                    name="category"
+                                    value="Games"
+                                    style="margin : 5px 5px;"
+                                    ngModel
+                                    required> Games
+                                </div>
+                                <div class="col-3">
+                                    <input 
+                                    type="radio"
+                                    name="category" 
+                                    value="Event"
+                                    style="margin : 5px 5px;"
+                                    ngModel
+                                    required> Event
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group my-fnt mt-4">
+                            <label for="description">Advertisement Content</label>
+                            <textarea
+                            placeholder="Enter content of advertisement"
+                            rows="5" 
+                            id="description" 
+                            name="description"
+                            class="form-control"
+                            minlength="150"
+                            ngModel
+                            required
+                            #description="ngModel"></textarea>
+                            <span
+                            class="help-block"
+                            *ngIf="!description.valid && description.touched"
+                            style="color:red;">Enter description of the Event minimum 50 words</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button 
+                        type="submit" 
+                        class="mybutton my-fnt"
+                        [disabled]="!f.valid" style="margin-right : 10px;">Create</button>
+                        <button 
+                        type="submit" 
+                        class="mybutton my-fnt"
+                        [disabled]="!f.valid" style="margin-right : 10px;"
+                        (click)="alsoPublish()">Create & Publish</button>
+                        <button 
+                        type="button" 
+                        class="btn my-fnt"
+                        (click)="onCancel()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

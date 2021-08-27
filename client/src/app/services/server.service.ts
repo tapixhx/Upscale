@@ -25,4 +25,15 @@ export class ServerService {
     {headers: headers});
   }
 
+  createAdvertisement(data:any) {
+    const token = localStorage.getItem('token')
+    const headers = new HttpHeaders({
+       'Authorization': `Bearer `+token,
+    })
+    console.log(JSON.stringify({data}));
+    return this.http.post(this.rootUrl+'/api/register',
+      JSON.stringify({data}),
+      {headers: headers});
+  }
+
 }
