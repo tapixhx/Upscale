@@ -1,1 +1,105 @@
-<p>register works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-12">
+            <div class="frm">
+            <div class="my-fnt fnt-weight">
+                <h2>Register</h2>
+            </div>
+            <form (ngSubmit)="onRegister(f)" #f="ngForm">
+                <div class="form-group my-fnt mt-4">
+                    <label for="name">Full name</label>
+                    <input
+                    placeholder = "e.g.(John Doe)" 
+                    type="name" 
+                    id="fullName" 
+                    name="fullName" 
+                    ngModel 
+                    class="form-control"
+                    required 
+                    #fullName="ngModel">
+                    <span 
+                    class="help-block"
+                    *ngIf="!fullName.valid && fullName.touched"
+                    style="color:red;">Enter a valid Name</span>
+                </div>
+                <div class="form-group my-fnt mt-4">
+                    <label for="username">UserName</label>
+                    <input
+                    placeholder = "e.g.(mike_26)"
+                    type="userName" 
+                    id="userName" 
+                    name="userName" 
+                    ngModel 
+                    class="form-control"
+                    required 
+                    #userName="ngModel">
+                    <span 
+                    class="help-block"
+                    *ngIf="!userName.valid && userName.touched"
+                    style="color:red;">Enter a valid UserName</span>
+                </div>
+                <div class="form-group my-fnt mt-4">
+                    <label for="email">E-Mail</label>
+                    <input 
+                    placeholder = "e.g.(abc@xyz.com)"
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    ngModel
+                    class="form-control"
+                    required
+                    #email="ngModel">
+                    <span 
+                    class="help-block"
+                    *ngIf="!email.valid && email.touched"
+                    style="color:red;">Enter valid E-mail</span>
+                </div>
+                <div class="form-group my-fnt mt-4">
+                    <label for="password">Password</label>
+                    <input
+                    placeholder = "Minimum length 6 characters"
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    ngModel 
+                    class="form-control"
+                    required 
+                    [minlength]="6"
+                    #password="ngModel">
+                    <span
+                    class="help-block"
+                    *ngIf="!password.valid && password.touched"
+                    style="color:red;">Enter minimum 6 character password</span>
+                </div>
+                <div class="form-group my-fnt mt-4">
+                    <label for="cpassword">Confirm Password</label>
+                    <input
+                    placeholder = "Confirm your Password"
+                    appConfirmPassword="password"
+                    type="password" 
+                    id="confirmPassword" 
+                    name="confirmPassword" 
+                    ngModel 
+                    class="form-control"
+                    required 
+                    [minlength]="6"
+                    #confirmPassword="ngModel">
+                    <span
+                    class="help-block"
+                    *ngIf="confirmPassword.touched && confirmPassword.errors?.required "
+                    style="color:red;">Confirm Password is required</span>
+                    <span
+                    class="help-block"
+                    *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual &&
+                    !confirmPassword.errors?.required" 
+                    style="color:red;">Password doesn't match</span>
+                </div>
+                <button type="submit" class="mybutton my-fnt"  [disabled]="!f.valid">SignUp</button>
+            </form>
+            <p class="my-fnt mt-4">Already registered ? <a routerLink='/login' class="pointer txt-dec">LogIn</a></p>
+        </div>
+    </div>
+    <div class="col-lg-6"></div>
+    </div>
+</div>

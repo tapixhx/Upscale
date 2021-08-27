@@ -1,0 +1,40 @@
+input.ng-invalid.ng-touched {
+    border : 2px solid red;
+}
+input {
+    border-left: 3px solid #0D2E57;
+    width:25rem;
+}
+
+.frm {
+    margin: 2rem 0 0 5rem;
+}
+.my-fnt {
+    font-family: 'Poppins', sans-serif;
+}
+.fnt-weight {
+    font-weight: 500;
+}
+.mybutton {
+    margin-top: 2rem;
+    letter-spacing:0.8px;
+    border:2px solid #0D2E57;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #0D2E57;
+    padding: .5rem 1rem;
+}
+.mybutton:hover {
+    background-color: #0D2E57;
+    color: #fff;
+    transition: .2s ease-in-out;
+}
+.mybutton:focus {
+    outline:none;
+}
+.txt-dec {
+    text-decoration: none;
+}
+.pointer {
+    cursor: pointer;
+}

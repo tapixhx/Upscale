@@ -35,10 +35,6 @@ input {
 .txt-dec {
     text-decoration: none;
 }
-.txt-dec:hover {
-    text-decoration: underline;
-    transition: .2s ease-in-out;
-}
 .pointer {
     cursor: pointer;
 }
