@@ -15,6 +15,8 @@ import { ServerService } from './services/server.service';
 import { AuthGuard } from './guard/auth.guard';
 import { ExploreComponent } from './explore/explore.component';
 import { CreateComponent } from './create/create.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CreateComponent } from './create/create.component';
     LoginComponent,
     RegisterComponent,
     ExploreComponent,
-    CreateComponent
+    CreateComponent,
+    UserprofileComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

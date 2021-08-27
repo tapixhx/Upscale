@@ -1,0 +1,21 @@
+.mybutton {
+    margin-top: 2rem;
+    letter-spacing:0.8px;
+    border:2px solid #0D2E57;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #0D2E57;
+    padding: .5rem 2rem;
+}
+.mybutton:hover {
+    background-color: #0D2E57;
+    color: #fff;
+    transition: .2s ease-in-out;
+}
+.mybutton:focus {
+    outline:none;
+}
+.activeCat {
+    background-color: #0D2E57;
+    color: #fff;
+}

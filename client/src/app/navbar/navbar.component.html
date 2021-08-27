@@ -24,10 +24,10 @@
         <a routerLink='/login' *ngIf="!authservice.loggedIn()" class="margin txt-dec my-fnt pointer" style="color: #0D2E57;">
             LogIn
         </a>
-        <a *ngIf="authservice.loggedIn()">
+        <a routerLink='/userprofile' *ngIf="authservice.loggedIn()">
             <button class="button my-fnt">My profile</button>
         </a>
-        <a *ngIf="authservice.loggedIn()" class="margin txt-dec my-fnt pointer" style="color: #0D2E57;">
+        <a *ngIf="authservice.loggedIn()" class="margin txt-dec my-fnt pointer" style="color: #0D2E57;" (click)="authservice.logout()">
             Logout
         </a>
     </div>

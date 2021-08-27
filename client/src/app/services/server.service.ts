@@ -31,9 +31,29 @@ export class ServerService {
        'Authorization': `Bearer `+token,
     })
     console.log(JSON.stringify({data}));
-    return this.http.post(this.rootUrl+'/api/register',
+    return this.http.post(this.rootUrl+'/api/create',
       JSON.stringify({data}),
       {headers: headers});
+  }
+
+  getAdvertisementDetails(id:any) {
+    const headers = new HttpHeaders({
+        'Content-Type':'application/json',
+    })
+    return this.http.get(this.rootUrl+'/api/adv/'+id,
+    {headers: headers});
+  }
+
+  updateAdvertisement(data:any) {
+    const token = localStorage.getItem('token')
+    const headers = new HttpHeaders({
+        'Content-Type':'application/json',
+        'Authorization': `Bearer `+token,
+    })
+    // console.log(JSON.stringify({ename, category, evenue, fevenue, imagePath, date, orgname, description}));
+    return this.http.put(this.rootUrl+'/api/updateevent/'+data.id,
+        JSON.stringify({data}),
+        {headers: headers});
   }
 
 }
