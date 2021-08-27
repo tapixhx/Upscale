@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="my-fnt fnt-weight mt-4 text-center" style="color: #0D2E57;">Events By Category</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2 text-center">
+                    <button 
+                    [ngClass]="{'active_btn': id === 1 }" id="1"
+                    (click)="needEcomm(id=1)" 
+                    class="mybutton my-fnt">E-Commerce</button>
+                </div>
+                <div class="col-md-2 text-center">
+                    <button
+                    [ngClass]="{'active_btn': id === 2 }" id="2"
+                    (click)="needCrypto(id=2)"
+                    class="mybutton my-fnt">Crypto</button>
+                </div>
+                <div class="col-md-2 text-center">
+                    <button 
+                    [ngClass]="{'active_btn': id === 3 }" id="3"
+                    (click)="needGames(id=3)" 
+                    class="mybutton my-fnt">Games</button>
+                </div>
+                <div class="col-md-2 text-center">
+                    <button
+                    [ngClass]="{'active_btn': id === 4 }" id="4"
+                    (click)="needEvent(id=4)" 
+                    class="mybutton my-fnt">Event</button>
+                </div> 
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+    <hr class="mt-5" style="color: #0D2E57;">
+    <div>
+        <h3 class="my-fnt text-center mt-5" *ngIf="!ecomm && !crypto && !games && !event" style="color: #0D2E57;">
+            <>Select a category to view Advertisements<>
+        </h3>
+    </div>
+</div>

@@ -12,6 +12,9 @@ import { RegisterComponent } from './auth/register/register.component';
 
 import { AuthService } from './services/auth.service';
 import { ServerService } from './services/server.service';
+import { AuthGuard } from './guard/auth.guard';
+import { ExploreComponent } from './explore/explore.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { ServerService } from './services/server.service';
     HomeComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ExploreComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,8 @@ import { ServerService } from './services/server.service';
   ],
   providers: [
     AuthService,
-    ServerService
+    ServerService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

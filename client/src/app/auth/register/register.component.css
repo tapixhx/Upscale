@@ -9,12 +9,6 @@ input {
 .frm {
     margin: 2rem 0 0 5rem;
 }
-.my-fnt {
-    font-family: 'Poppins', sans-serif;
-}
-.fnt-weight {
-    font-weight: 500;
-}
 .mybutton {
     margin-top: 2rem;
     letter-spacing:0.8px;

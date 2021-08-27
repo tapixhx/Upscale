@@ -10,10 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link my-fnt pointer txt-dec" style="color: #0D2E57;">Explore</a>
+              <a routerLink='/explore' class="nav-link my-fnt pointer txt-dec" style="color: #0D2E57;">Explore</a>
             </li>
             <li *ngIf="authservice.loggedIn()" class="nav-item">
-              <a class="nav-link my-fnt pointer txt-dec" style="color: #0D2E57;">Create</a>
+              <a routerLink='/create' class="nav-link my-fnt pointer txt-dec" style="color: #0D2E57;">Create</a>
             </li>
         </ul>
     </div>
