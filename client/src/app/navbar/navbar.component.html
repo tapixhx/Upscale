@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-4 sticky-top">
+    <a class="navbar-brand my-fnt fnt-weight" routerLink='/'>
+        <img src="../../assets/images/upscale_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Upscale
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link my-fnt pointer txt-dec" style="color: #0D2E57;">Explore</a>
+            </li>
+            <li *ngIf="authservice.loggedIn()" class="nav-item">
+              <a class="nav-link my-fnt pointer txt-dec" style="color: #0D2E57;">Create</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav-item">
+        <a routerLink='/register' class="margin">
+            <button class="button my-fnt">Register</button>
+        </a>
+        <a routerLink='/login' *ngIf="!authservice.loggedIn()" class="margin txt-dec my-fnt pointer" style="color: #0D2E57;">
+            LogIn
+        </a>
+        <a *ngIf="authservice.loggedIn()">
+            <button class="button my-fnt">My profile</button>
+        </a>
+        <a *ngIf="authservice.loggedIn()" class="margin txt-dec my-fnt pointer" style="color: #0D2E57;">
+            Logout
+        </a>
+    </div>
+  </nav>
