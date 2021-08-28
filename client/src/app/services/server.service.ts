@@ -6,7 +6,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class ServerService {
 
-  private rootUrl = "http://localhost:3000/";
+  private rootUrl = "http://localhost:3000";
 
   constructor(private http: HttpClient) { }
 
@@ -25,14 +25,15 @@ export class ServerService {
     {headers: headers});
   }
 
-  createAdvertisement(data:any) {
+  createAdvertisement(title: string, image: string, category: string, content: string, publish: boolean) {
     const token = localStorage.getItem('token')
     const headers = new HttpHeaders({
-       'Authorization': `Bearer `+token,
+      'Content-Type':'application/json',
+      'Authorization': `Bearer `+token,
     })
-    console.log(JSON.stringify({data}));
-    return this.http.post(this.rootUrl+'/api/create',
-      JSON.stringify({data}),
+    console.log(JSON.stringify({title, image, category, content, publish}));
+    return this.http.post(this.rootUrl+'/api/advertisements',
+      JSON.stringify({title, image, category, content, publish}),
       {headers: headers});
   }
 

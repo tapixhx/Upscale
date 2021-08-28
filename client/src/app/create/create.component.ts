@@ -24,11 +24,15 @@ export class CreateComponent implements OnInit {
     this.publish = true;
   }
 
+  noPublish() {
+    this.publish = false;
+  }
+
   onCreate(form : NgForm) {
     const value = form.value;
     value.publish = this.publish;
     console.log(JSON.stringify({value}));
-    this.serverservice.createAdvertisement(value)
+    this.serverservice.createAdvertisement(value.title, value.imagePath, value.category, value.content, value.publish)
       .subscribe(
         (response) =>{ 
           console.log(response);

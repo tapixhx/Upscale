@@ -17,7 +17,11 @@ class Api::AdvertisementsController < ApplicationController
   # POST api/advertisements
   def create
     @advertisement = Advertisement.new(advertisement_params)
+
     @advertisement.user = @user
+    if !(@advertisement.category == "E-Commerce" || @advertisement.category == "Crypto" || @advertisement.category == "Games" || @advertisement.category == "Event")
+      return render json: {error: "Invalid Category "}
+    end
     if @advertisement.save
       render json: @advertisement, status: :created
     else
@@ -57,6 +61,6 @@ class Api::AdvertisementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def advertisement_params
-      params.require(:advertisement).permit(:title, :image, :category, :content, :user_id)
+      params.require(:advertisement).permit(:title, :image, :category, :content, :user_id, :publish)
     end
 end
