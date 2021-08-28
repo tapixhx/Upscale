@@ -18,13 +18,13 @@
         </ul>
     </div>
     <div class="nav-item">
-        <a routerLink='/register' class="margin">
+        <a routerLink='/register' *ngIf="!authservice.loggedIn()" class="margin">
             <button class="button my-fnt">Register</button>
         </a>
         <a routerLink='/login' *ngIf="!authservice.loggedIn()" class="margin txt-dec my-fnt pointer" style="color: #0D2E57;">
             LogIn
         </a>
-        <a routerLink='/userprofile' *ngIf="authservice.loggedIn()">
+        <a routerLink='/userprofile' *ngIf="authservice.loggedIn()" class="margin">
             <button class="button my-fnt">My profile</button>
         </a>
         <a *ngIf="authservice.loggedIn()" class="margin txt-dec my-fnt pointer" style="color: #0D2E57;" (click)="authservice.logout()">
