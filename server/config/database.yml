@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: upscale_development
+  database: server_development
   username: postgres
   password: sql@password
 
@@ -59,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: upscale_test
+  database: server_test
   username: postgres
   password: sql@password
 
@@ -85,7 +85,7 @@ test:
 #
 production:
   <<: *default
-  database: upscale_production
+  database: server_production
   username: postgres
   password: sql@password
   # password: <%= ENV['SERVER_DATABASE_PASSWORD'] %>

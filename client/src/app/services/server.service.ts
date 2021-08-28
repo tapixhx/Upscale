@@ -6,15 +6,15 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class ServerService {
 
-  private rootUrl = "https://localhost:3000";
+  private rootUrl = "http://localhost:3000/";
 
   constructor(private http: HttpClient) { }
 
-  logInUser(data:any) {
+  logInUser(email: string, password: string) {
     const headers = new HttpHeaders({'Content-Type':'application/json'})
-    console.log(JSON.stringify({data}));
+    console.log(JSON.stringify({email, password}));
     return this.http.post(this.rootUrl+'/auth/login',
-    JSON.stringify({data}),
+    JSON.stringify({email, password}),
     {headers: headers});
   }
 

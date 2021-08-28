@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   onLogin(form : NgForm) {
     console.log(JSON.stringify(form.value));
     const value = form.value;
-    this.serverservice.logInUser(value)
+    this.serverservice.logInUser(value.email, value.password)
     .subscribe(
       (response) => {
         console.log(response);
