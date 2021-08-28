@@ -18,10 +18,10 @@ export class ServerService {
     {headers: headers});
   }
 
-  registerUser(data:any) {
+  registerUser(email: string, name: string, password: string) {
     const headers = new HttpHeaders({'Content-Type':'application/json'})
     // console.log(JSON.stringify({data}));
-    return this.http.post(this.rootUrl+'/auth/register',JSON.stringify({data}),
+    return this.http.post(this.rootUrl+'/auth/register',JSON.stringify({email, name, password}),
     {headers: headers});
   }
 

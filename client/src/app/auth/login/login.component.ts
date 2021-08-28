@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServerService } from 'src/app/services/server.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,10 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private serverservice : ServerService,) { }
+  res:any;
+
+  constructor(private serverservice : ServerService,
+    private route: Router,) { }
 
   ngOnInit(): void {
   }
@@ -23,9 +27,15 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (response) => {
         console.log(response);
+        this.res = response;
+        localStorage.setItem('token', this.res.token);
+        localStorage.setItem('name',this.res.user.name);
+        alert("Successfully logged in!");
+        this.route.navigate(['/']);
       },
       (error: HttpErrorResponse) => {
         console.log(error);
+        alert("Error occured!");
       }
     );
   }

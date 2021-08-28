@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ServerService } from 'src/app/services/server.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +13,10 @@ import { ServerService } from 'src/app/services/server.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private serverservice: ServerService,) { }
+  res:any;
+
+  constructor(private serverservice: ServerService,
+    private route: Router,) { }
 
   ngOnInit(): void {
   }
@@ -20,13 +25,19 @@ export class RegisterComponent implements OnInit {
     console.log(JSON.stringify(form.value));
     const value = form.value;
     if(value.password == value.confirmPassword) {
-      this.serverservice.registerUser(value)
+      this.serverservice.registerUser(value.email, value.name, value.password)
       .subscribe(
         (response) => {
           console.log(response);
+          this.res = response;
+          localStorage.setItem('token', this.res.token);
+          localStorage.setItem('name',this.res.user.name);
+          alert("Account created succesfully!");
+          this.route.navigate(['/']);
         },
         (error: HttpErrorResponse) => {
           console.log(error);
+          alert("Error occured!");
         },
       );
     }
