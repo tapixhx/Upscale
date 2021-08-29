@@ -13,11 +13,13 @@ class Api::AdvertisementsController < ApplicationController
     render json: @advertisement
   end
 
+  # GET user advertisement
   def useradv
     # @comment = Comment.where advertisements: params[:advertisement_id]
     @advertisements = Advertisement.where user: @user.id
     render json: @advertisements
   end
+
   # POST api/advertisements
   def create
     @advertisement = Advertisement.new(advertisement_params)
@@ -33,7 +35,7 @@ class Api::AdvertisementsController < ApplicationController
     end
   end
 
-  # PATCH/PUT api/advertisements/1
+  # PUT api/advertisements/1
   def update
     user_id = decoded_token[0]['user_id']
     adv = Advertisement.find_by(id: params[:id])
@@ -58,12 +60,11 @@ class Api::AdvertisementsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_advertisement
       @advertisement = Advertisement.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Allowing only trusted parameters.
     def advertisement_params
       params.require(:advertisement).permit(:title, :image, :category, :content, :user_id, :publish)
     end

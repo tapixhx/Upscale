@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       this.serverservice.registerUser(value.email, value.name, value.password)
       .subscribe(
         (response) => {
-          console.log(response);
+          // console.log(response);
           this.res = response;
           localStorage.setItem('token', this.res.token);
           localStorage.setItem('name',this.res.user.name);

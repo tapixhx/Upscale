@@ -13,8 +13,8 @@ class Auth::UsersController < ApplicationController
 
     def login
         @user = User.find_by(email: params[:email])
-        puts "Heloooooooooooooooooooooooo"
-        puts "#{@user.email}"
+        # puts "Heloooooooooooooooooooooooo"
+        # puts "#{@user.email}"
         if @user.email && @user.authenticate(params[:password])
             token = encode_token({user_id: @user.id})
             render json: {user: @user, token: token}

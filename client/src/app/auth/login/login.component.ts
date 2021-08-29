@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.serverservice.logInUser(value.email, value.password)
     .subscribe(
       (response) => {
-        console.log(response);
+        // console.log(response);
         this.res = response;
         localStorage.setItem('token', this.res.token);
         localStorage.setItem('name',this.res.user.name);
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.route.navigate(['/']);
       },
       (error: HttpErrorResponse) => {
-        console.log(error);
+        // console.log(error);
         this.ngxService.stop();
         alert("Error occured!");
       }

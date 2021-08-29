@@ -11,7 +11,7 @@ class Api::CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
-    puts "#{comment_params}"
+    # puts "#{comment_params}"
     @comment.user = @user
     @comment.advertisement = Advertisement.find(params[:advertisement_id])
     if @comment.save
