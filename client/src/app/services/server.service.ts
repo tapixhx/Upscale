@@ -37,24 +37,56 @@ export class ServerService {
       {headers: headers});
   }
 
+  getAdvertisements() {
+    return this.http.get(this.rootUrl+'/api/advertisements');
+  }
+
   getAdvertisementDetails(id:any) {
     const headers = new HttpHeaders({
-        'Content-Type':'application/json',
+      'Content-Type':'application/json'
     })
-    return this.http.get(this.rootUrl+'/api/adv/'+id,
+    console.log(this.rootUrl+'/api/advertisements/'+id);
+    return this.http.get(this.rootUrl+'/api/advertisements/'+id,
     {headers: headers});
   }
 
-  updateAdvertisement(data:any) {
+  getAdvertisementComments(id:any) {
+    const headers = new HttpHeaders({
+      'Content-Type':'application/json'
+    })
+    return this.http.get(this.rootUrl+'/api/advertisements/'+id+'/comments',
+    {headers: headers});
+  }
+
+  getUserAdv() {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer `+token,
+    })
+    return this.http.get(this.rootUrl+'/api/useradv', { headers: headers });
+  }
+
+  updateAdvertisement(id:number, title:string, image:string, category:string, content:string, publish:boolean) {
     const token = localStorage.getItem('token')
     const headers = new HttpHeaders({
         'Content-Type':'application/json',
         'Authorization': `Bearer `+token,
     })
     // console.log(JSON.stringify({ename, category, evenue, fevenue, imagePath, date, orgname, description}));
-    return this.http.put(this.rootUrl+'/api/updateevent/'+data.id,
-        JSON.stringify({data}),
+    return this.http.put(this.rootUrl+'/api/advertisements/'+id,
+        JSON.stringify({title, image, category, content, publish}),
         {headers: headers});
+  }
+
+  deleteEvent(id:any) {
+    // console.log(id);
+    const token = localStorage.getItem('token')
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer `+token,
+    })
+    return this.http.delete(this.rootUrl+'/api/advertisements/'+id, { headers: headers });
   }
 
 }

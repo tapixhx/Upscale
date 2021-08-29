@@ -1,13 +1,10 @@
 class Api::CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
+  before_action :authorized, expect: [:index]
 
   # GET /comments
   def index
-    @advertisement = Advertisement.find(params[:advertisement_id])
-    @comment = Comment.all()
-    # @comment = Comment.find(:all, 
-    # :conditions => ['@comment.advertisement = @advertisement_'])
-    # puts "#{comment.content}"
+    @comment = Comment.where advertisements: params[:advertisement_id]
     render json: @comment
   end
 

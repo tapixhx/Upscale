@@ -17,6 +17,7 @@ import { ExploreComponent } from './explore/explore.component';
 import { CreateComponent } from './create/create.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { UpdateComponent } from './update/update.component';
+import { AdvertisementDetailComponent } from './advertisement-detail/advertisement-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UpdateComponent } from './update/update.component';
     ExploreComponent,
     CreateComponent,
     UserprofileComponent,
-    UpdateComponent
+    UpdateComponent,
+    AdvertisementDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,10 @@
 class Api::AdvertisementsController < ApplicationController
   before_action :set_advertisement, only: [:show, :update, :destroy]
-  before_action :authorized
+  before_action :authorized, except: [:show, :index]
 
   # GET api/advertisements
   def index
     @advertisements = Advertisement.all
-
     render json: @advertisements
   end
 
@@ -14,6 +13,11 @@ class Api::AdvertisementsController < ApplicationController
     render json: @advertisement
   end
 
+  def useradv
+    # @comment = Comment.where advertisements: params[:advertisement_id]
+    @advertisements = Advertisement.where user: @user.id
+    render json: @advertisements
+  end
   # POST api/advertisements
   def create
     @advertisement = Advertisement.new(advertisement_params)

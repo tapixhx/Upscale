@@ -41,5 +41,149 @@
         <h3 class="my-fnt text-center mt-5" *ngIf="!ecomm && !crypto && !games && !event" style="color: #0D2E57;">
             <>Select a category to view Advertisements<>
         </h3>
+        <div *ngIf='ecomm'>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <h3 class="my-fnt mt-2" style="color: #0D2E57;">E-Commerce</h3>
+                    <div
+                    *ngFor="let advertisement of advertisement; index as id">
+                        <div *ngIf="advertisement.category === 'E-Commerce' && advertisement.publish === true">
+                            <a 
+                            style="cursor : pointer;"
+                            [routerLink]="['/advertisement',advarray[id]]" 
+                            routerLinkActive="active"
+                            style="text-decoration: none;">
+                                <div class="box mt-5 margin">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <img 
+                                            [src] = "advertisement.image"
+                                            alt="{{ advertisement.title }}" 
+                                            class="img-responsive" 
+                                            style="max-height:50px; text-decoration: none;">
+                                        </div>
+                                        <div class="col-6">
+                                            <h4 
+                                            class="list-group-item-heading my-fnt" 
+                                            style="color: #0D2E57;">{{ advertisement.title }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <div *ngIf='crypto'>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <h3 class="my-fnt mt-2" style="color: #0D2E57;">Crypto</h3>
+                    <div
+                    *ngFor="let advertisement of advertisement; index as id">
+                        <div *ngIf="advertisement.category === 'Crypto' && advertisement.publish === true">
+                            <a 
+                            style="cursor : pointer;"
+                            [routerLink]="['/advertisement',advarray[id]]" 
+                            routerLinkActive="active"
+                            style="text-decoration: none;">
+                                <div class="box mt-5 margin">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <img 
+                                            [src] = "advertisement.image"
+                                            alt="{{ advertisement.title }}" 
+                                            class="img-responsive" 
+                                            style="max-height:50px; text-decoration: none;">
+                                        </div>
+                                        <div class="col-6">
+                                            <h4 
+                                            class="list-group-item-heading my-fnt" 
+                                            style="color: #0D2E57;">{{ advertisement.title }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <div *ngIf='games'>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <h3 class="my-fnt mt-2" style="color: #0D2E57;">Games</h3>
+                    <div
+                    *ngFor="let advertisement of advertisement; index as id">
+                        <div *ngIf="advertisement.category === 'Games' && advertisement.publish === true">
+                            <a 
+                            style="cursor : pointer;"
+                            [routerLink]="['/advertisement',advarray[id]]" 
+                            routerLinkActive="active"
+                            style="text-decoration: none;">
+                                <div class="box mt-5 margin">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <img 
+                                            [src] = "advertisement.image"
+                                            alt="{{ advertisement.title }}" 
+                                            class="img-responsive" 
+                                            style="max-height:50px; text-decoration: none;">
+                                        </div>
+                                        <div class="col-6">
+                                            <h4 
+                                            class="list-group-item-heading my-fnt" 
+                                            style="color: #0D2E57;">{{ advertisement.title }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <div *ngIf='event'>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <h3 class="my-fnt mt-2" style="color: #0D2E57;">Event</h3>
+                    <div
+                    *ngFor="let advertisement of advertisement; index as id">
+                        <div *ngIf="advertisement.category === 'Event' && advertisement.publish === true">
+                            <a 
+                            style="cursor : pointer;"
+                            [routerLink]="['/advertisement',advarray[id]]" 
+                            routerLinkActive="active"
+                            style="text-decoration: none;">
+                                <div class="box mt-5 margin">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <img 
+                                            [src] = "advertisement.image"
+                                            alt="{{ advertisement.title }}" 
+                                            class="img-responsive" 
+                                            style="max-height:50px; text-decoration: none;">
+                                        </div>
+                                        <div class="col-6">
+                                            <h4 
+                                            class="list-group-item-heading my-fnt" 
+                                            style="color: #0D2E57;">{{ advertisement.title }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
     </div>
 </div>

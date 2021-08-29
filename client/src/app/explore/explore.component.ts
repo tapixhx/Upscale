@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Advertisement } from './advertisement.model';
+import { ServerService } from '../services/server.service';
+import { Router, NavigationEnd } from '@angular/router';
+
 @Component({
   selector: 'app-explore',
   templateUrl: './explore.component.html',
@@ -12,6 +16,11 @@ export class ExploreComponent implements OnInit {
   games = false;
   event = false;
   id:any;
+  res: any;
+  advertisement: Advertisement[];
+  advarray:number[]=[];
+  i:number;
+  j:number;
 
   needEcomm(id:any) {
     this.id = id;
@@ -42,9 +51,29 @@ export class ExploreComponent implements OnInit {
     this.event = true;
   }
 
-  constructor() { }
+  constructor(private serverservice: ServerService,
+    private route : Router,) { }
 
   ngOnInit(): void {
+    this.serverservice.getAdvertisements()
+    .subscribe(
+      (response) =>{
+        this.res = response;
+        // console.log(this.res);
+        this.advertisement = this.res;
+        for(this.i=0; this.i<this.advertisement.length; this.i++) {
+          this.id = this.advertisement[this.i].id;
+          // console.log(this.advertisement[this.i].image);
+          for(this.j=this.i; this.j<this.i+1; this.j++) {
+            this.advarray.push(this.id);
+            // console.log(this.advarray)
+          }
+        }
+      },
+      (error) =>{
+         console.log(error);
+      },
+    );
   }
 
 }

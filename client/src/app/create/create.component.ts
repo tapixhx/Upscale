@@ -35,20 +35,12 @@ export class CreateComponent implements OnInit {
     this.serverservice.createAdvertisement(value.title, value.imagePath, value.category, value.content, value.publish)
       .subscribe(
         (response) =>{ 
-          console.log(response);
-          // this.router.navigate(['/explore']);
+          // console.log(response);
+          this.router.navigate(['/explore']);
         },
         (error:HttpErrorResponse) =>{ 
-          console.log(error);
-          this.errormsg = error.error.message;
-          if(this.errormsg === "Not authenticated.") {
-            localStorage.removeItem('token');
-            localStorage.removeItem('name');  
-            this.router.navigate(['/']);
-          }
-          if(this.errormsg != 'Not authenticated.') {
-
-          }
+          // console.log(error);
+          alert("Error ocuured");
         },
       );
   }

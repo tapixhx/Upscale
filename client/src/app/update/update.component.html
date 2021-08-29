@@ -92,21 +92,48 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group my-fnt mt-4">
-                            <label for="description">Advertisement Content</label>
+                            <label for="content">Advertisement Content</label>
                             <textarea
                             placeholder="Enter content of advertisement"
                             rows="5" 
-                            id="description" 
-                            name="description"
+                            id="content" 
+                            name="content"
                             class="form-control"
                             minlength="150"
                             ngModel
                             required
-                            #description="ngModel"></textarea>
+                            #content="ngModel"></textarea>
                             <span
                             class="help-block"
-                            *ngIf="!description.valid && description.touched"
-                            style="color:red;">Enter description of the Event minimum 50 words</span>
+                            *ngIf="!content.valid && content.touched"
+                            style="color:red;">Enter content of the Event minimum 50 words</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group my-fnt mt-4">
+                            <label for="publish">Status of Advertisement</label>
+                            <div class="row">
+                                <div class="col-3">
+                                    <input 
+                                    type="radio" 
+                                    name="publish"
+                                    value="true"
+                                    style="margin : 5px 5px;"
+                                    ngModel
+                                    required> Publish
+                                </div>
+                                <div class="col-3">
+                                    <input 
+                                    type="radio" 
+                                    name="publish"
+                                    value="false"
+                                    style="margin : 5px 5px;"
+                                    ngModel
+                                    required> Unpublish
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

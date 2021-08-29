@@ -19,3 +19,18 @@
     background-color: #0D2E57;
     color: #fff;
 }
+.box {
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #dcdcdc;
+    text-decoration: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.box:hover {
+    box-shadow: none;
+    transition: .2s all ease-in-out;
+}
+.margin {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}

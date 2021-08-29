@@ -8,8 +8,9 @@ Rails.application.routes.draw do
     post "/register", to: "users#register"
   end
   namespace :api do
-    resources :advertisements do
+    resources :advertisements do 
       resources :comments
     end
+    get "/useradv", to: "advertisements#useradv"
   end
 end
