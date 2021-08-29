@@ -6,7 +6,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class ServerService {
 
-  private rootUrl = "http://localhost:3000";
+  private rootUrl = "https://upscale-server.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
