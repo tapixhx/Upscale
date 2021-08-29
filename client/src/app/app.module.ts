@@ -18,6 +18,7 @@ import { CreateComponent } from './create/create.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { UpdateComponent } from './update/update.component';
 import { AdvertisementDetailComponent } from './advertisement-detail/advertisement-detail.component';
+import { AddcommentComponent } from './addcomment/addcomment.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AdvertisementDetailComponent } from './advertisement-detail/advertiseme
     CreateComponent,
     UserprofileComponent,
     UpdateComponent,
-    AdvertisementDetailComponent
+    AdvertisementDetailComponent,
+    AddcommentComponent
   ],
   imports: [
     BrowserModule,

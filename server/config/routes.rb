@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   namespace :api do
     resources :advertisements do 
-      resources :comments
+      resources :comments 
     end
     get "/useradv", to: "advertisements#useradv"
   end

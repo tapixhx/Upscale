@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
+  skip_before_action :authorized, :only => [:index]
   before_action :set_comment, only: [:show, :update, :destroy]
-  before_action :authorized, expect: [:index]
 
   # GET /comments
   def index

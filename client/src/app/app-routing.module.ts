@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { UpdateComponent } from './update/update.component';
 import { AdvertisementDetailComponent } from './advertisement-detail/advertisement-detail.component';
+import { AddcommentComponent } from './addcomment/addcomment.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'advertisement/:id', component: AdvertisementDetailComponent},
   {path:'create', component: CreateComponent, canActivate: [AuthGuard]},
   {path:'userprofile', component: UserprofileComponent, canActivate: [AuthGuard]},
-  {path:'update/:id', component: UpdateComponent, canActivate: [AuthGuard]}
+  {path:'update/:id', component: UpdateComponent, canActivate: [AuthGuard]},
+  {path:'addcomment/:id', component: AddcommentComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

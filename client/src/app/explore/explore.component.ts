@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Advertisement } from './advertisement.model';
 import { ServerService } from '../services/server.service';
-import { Router, NavigationEnd } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-explore',
@@ -52,9 +52,10 @@ export class ExploreComponent implements OnInit {
   }
 
   constructor(private serverservice: ServerService,
-    private route : Router,) { }
+    private ngxService: NgxUiLoaderService,) { }
 
   ngOnInit(): void {
+    this.ngxService.start();
     this.serverservice.getAdvertisements()
     .subscribe(
       (response) =>{
@@ -69,9 +70,12 @@ export class ExploreComponent implements OnInit {
             // console.log(this.advarray)
           }
         }
+        this.ngxService.stop();
       },
       (error) =>{
-         console.log(error);
+        this.ngxService.stop();
+        //  console.log(error);
+        alert("Error occured!");
       },
     );
   }

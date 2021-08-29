@@ -1,20 +1,17 @@
-img {
-    height: 30rem;
+input.ng-invalid.ng-touched {
+    border : 2px solid red;
 }
-.cmt-box {
-    border-radius: 20px;
-    background-color: #f5f5f5;
-    padding: .5rem 1rem;
-    margin-top: .8rem;
+input {
+    border-left: 3px solid #0D2E57;
 }
 .mybutton {
+    margin-top: 2rem;
     letter-spacing:0.8px;
     border:2px solid #0D2E57;
     background-color: transparent;
-    border-radius: 20px;
+    border-radius: 10px;
     color: #0D2E57;
-    padding: .5rem .5rem;
-    margin-top: 1rem;
+    padding: .5rem 1rem;
 }
 .mybutton:hover {
     background-color: #0D2E57;

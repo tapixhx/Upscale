@@ -58,6 +58,18 @@ export class ServerService {
     {headers: headers});
   }
 
+  addComment(content: string, id: number) {
+    const token = localStorage.getItem('token')
+    const headers = new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': `Bearer `+token,
+    })
+    console.log(JSON.stringify({content}));
+    return this.http.post(this.rootUrl+'/api/advertisements/'+id+'/comments',
+      JSON.stringify({content}),
+      {headers: headers});
+  }
+
   getUserAdv() {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
